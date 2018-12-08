@@ -5,8 +5,15 @@
  */
 package aec.controller;
 
+import animatefx.animation.BounceIn;
 import animatefx.animation.FadeInDown;
 import animatefx.animation.FadeInUp;
+import animatefx.animation.JackInTheBox;
+import animatefx.animation.Jello;
+import animatefx.animation.RollIn;
+import animatefx.animation.RotateIn;
+import animatefx.animation.Shake;
+import animatefx.animation.Tada;
 import de.jensd.fx.glyphs.materialicons.MaterialIconView;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,7 +24,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -43,8 +49,6 @@ public class HomeController implements Initializable {
     @FXML
     private HBox btnPayment;
     @FXML
-    private HBox btnReport;
-    @FXML
     private StackPane stackPane;
     @FXML
     private MaterialIconView btnHome;
@@ -52,6 +56,8 @@ public class HomeController implements Initializable {
     private MaterialIconView btnLock;
     @FXML
     private AnchorPane panePayment;
+    @FXML
+    private AnchorPane paneExpense;
 
     /**
      * Initializes the controller class.
@@ -69,6 +75,7 @@ public class HomeController implements Initializable {
         paneResetPassword.setVisible(false);
         paneLogin.setVisible(false);
         paneStudent.setVisible(false);
+        paneExpense.setVisible(false);
         btnHome.setVisible(false);
         btnLock.setVisible(false);
     }
@@ -77,6 +84,7 @@ public class HomeController implements Initializable {
     private void btnTeacherClick(MouseEvent event) {
         hidePane();
         paneTeacher.setVisible(true);
+        new Shake(paneTeacher).play();
         btnHome.setVisible(true);
         btnLock.setVisible(true);
     }
@@ -85,6 +93,7 @@ public class HomeController implements Initializable {
     private void btnStudentClick(MouseEvent event) {
         hidePane();
         paneStudent.setVisible(true);
+        new RotateIn(paneStudent).play();
         btnHome.setVisible(true);
         btnLock.setVisible(true);
     }
@@ -93,6 +102,7 @@ public class HomeController implements Initializable {
     private void btnPaymentClick(MouseEvent event) {
         hidePane();
         panePayment.setVisible(true);
+        new RollIn(panePayment).play();
         btnLock.setVisible(true);
         btnHome.setVisible(true);
     }
@@ -122,12 +132,6 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    private void btnMinClick(MouseEvent event) {
-        Stage stage = (Stage) stackPane.getScene().getWindow();
-        stage.setIconified(true);
-    }
-
-    @FXML
     private void btnLoginClick(MouseEvent event) {
         hidePane();
         paneHome.setVisible(true);
@@ -140,19 +144,32 @@ public class HomeController implements Initializable {
     private void btnResetPasswordClick(MouseEvent event) {
         hidePane();
         paneResetPassword.setVisible(true);
+        new JackInTheBox(paneResetPassword).play();
         btnLock.setVisible(false);
     }
-    
+
     @FXML
     private void btnCancelClick(MouseEvent event) {
         hidePane();
         paneLogin.setVisible(true);
+        new Tada(paneLogin).play();
     }
 
     @FXML
     private void btnLockClick(MouseEvent event) {
         hidePane();
         paneLogin.setVisible(true);
+        new BounceIn(paneLogin).play();
         btnLock.setVisible(false);
+    }
+
+    @FXML
+    private void btnExpenseClick(MouseEvent event) {
+        hidePane();
+        paneExpense.setVisible(true);
+        new Jello(paneExpense).play();
+        btnHome.setVisible(true);
+        btnLock.setVisible(true);
+
     }
 }
