@@ -22,7 +22,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 
 /**
@@ -42,12 +41,6 @@ public class HomeController implements Initializable {
     private AnchorPane paneLogin;
     @FXML
     private AnchorPane paneStudent;
-    @FXML
-    private HBox btnTeacher;
-    @FXML
-    private HBox btnStudent;
-    @FXML
-    private HBox btnPayment;
     @FXML
     private StackPane stackPane;
     @FXML
@@ -76,6 +69,7 @@ public class HomeController implements Initializable {
         paneLogin.setVisible(false);
         paneStudent.setVisible(false);
         paneExpense.setVisible(false);
+
         btnHome.setVisible(false);
         btnLock.setVisible(false);
     }
